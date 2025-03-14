@@ -18,7 +18,7 @@ class WelcomePage extends StatelessWidget {
               height: 200,
           ),
           Text(
-            "Student",
+            "City",
             style: TextStyle(
               fontSize: 48,
               color: Color(0xFF2260FF),
@@ -34,7 +34,7 @@ class WelcomePage extends StatelessWidget {
             ),
           ),
           Text(
-            "Promotion Management",
+            "City Management",
             style: TextStyle(
               fontSize: 12,
               color: Color(0xFF2260FF),

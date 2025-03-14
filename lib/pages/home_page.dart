@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:student_app/pages/details_page.dart';
 import 'package:student_app/pages/enregistrement_page.dart';
 import 'package:student_app/pages/list_page.dart';
+import 'package:student_app/pages/profile_page.dart';
+import 'package:student_app/pages/welcome_page.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -44,13 +46,28 @@ class HomePage extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            DrawerHeader(
-              decoration: BoxDecoration(color: Color(0xFF101F34)),
-              child: Text(
-                'Menu',
-                style: TextStyle(color: Colors.white, fontSize: 24),
+            UserAccountsDrawerHeader(
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Image.asset(
+                  'assets/images/profile.png',
+                  width: 200,
+                  height: 200,
+                  fit: BoxFit.cover,
+                ),
               ),
+              decoration: BoxDecoration(color: Color(0xFF101F34)),
+              accountName: Text("username"),
+              accountEmail: Text("username@gmail.com"),
             ),
+            ListTile(
+              leading: Icon(Icons.switch_account),
+              title: Text('My account'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> ProfilePage()));
+              },
+            ),
+            Divider(),
             ListTile(
               leading: Icon(Icons.person_add),
               title: Text('Enregistrement'),
@@ -58,7 +75,6 @@ class HomePage extends StatelessWidget {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> FormPage()));
               },
             ),
-            Divider(),
             ListTile(
               leading: Icon(Icons.list),
               title: Text('Liste habitants'),
@@ -72,11 +88,18 @@ class HomePage extends StatelessWidget {
               title: Text('Paramètres'),
               onTap: () {},
             ),
-            Divider(),
             ListTile(
               leading: Icon(Icons.help),
               title: Text('Aide'),
               onTap: () {},
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text('Quitter'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>WelcomePage()));
+              },
             ),
           ],
         ),
