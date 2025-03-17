@@ -10,6 +10,6 @@ class UserController extends StateNotifier<UserState>{
 
   var userNetworkService = getIt<UserNetworkService>();
 
-  var data=Authentication(email: emailCtrl.text, password: passwordCtrl.text);
-  var resultat = await userNetworkService.authenticate(data);
+  //var data=Authentication(email: emailCtrl.text, password: passwordCtrl.text);
+  //var resultat = await userNetworkService.authenticate(data);
 }

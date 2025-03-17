@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:student_app/pages/details_page.dart';
 import 'package:student_app/pages/enregistrement_page.dart';
+import 'package:student_app/pages/list_habitants_commune.dart';
 import 'package:student_app/pages/list_page.dart';
 import 'package:student_app/pages/profile_page.dart';
 import 'package:student_app/pages/welcome_page.dart';
@@ -161,6 +162,13 @@ class HomePage extends StatelessWidget {
                         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                       ),
                       subtitle: Text('${cities[index]['population']} Habitants'),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ListHabitantsCommune(),
+                          ));
+                      },
                     ),
                   );
                 },
